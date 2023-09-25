@@ -3,7 +3,7 @@ package main.java.projeto.clinica.models;
 import java.sql.Date;
 
 @Entity
-@Table(name = "tb_fisioterapeuta")
+@Table(name = "tb_agendamento")
 public class Agendamento {
     @id
     @generetedValue
