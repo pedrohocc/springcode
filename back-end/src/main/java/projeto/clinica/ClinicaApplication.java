@@ -15,7 +15,7 @@ public class ClinicaApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			System.out.println("Aplicação Clinica Borracha");
+			System.out.println("Aplicação Clinica Borracha - Iniciada");
 		};
 	}
 }
