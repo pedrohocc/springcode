@@ -1,4 +1,4 @@
-package projeto.clinica.resource;
+package projeto.clinica.resources;
 
 import java.net.URI;
 import java.util.List;
@@ -15,18 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import projeto.clinica.entity.HealthPlan;
-import projeto.clinica.service.HealthPlanService;
+import projeto.clinica.entities.ClinicalProcedure;
+import projeto.clinica.services.ClinicalProcedureService;
 
 @RestController
-@RequestMapping(value = "/health-plans")
-public class HealthPlanResource {
+@RequestMapping(value = "/services")
+public class ClinicalProcedureResource {
 
   @Autowired
-  private HealthPlanService services;
+  private ClinicalProcedureService services;
 
+  // CREATE
   @PostMapping
-  public ResponseEntity<HealthPlan> create(@RequestBody HealthPlan obj) {
+  public ResponseEntity<ClinicalProcedure> create(@RequestBody ClinicalProcedure obj) {
 
     obj = services.create(obj);
 
@@ -37,30 +38,33 @@ public class HealthPlanResource {
     return ResponseEntity.created(uri).body(obj);
   }
 
+  // READ
   @GetMapping
-  public ResponseEntity<List<HealthPlan>> findAll() {
+  public ResponseEntity<List<ClinicalProcedure>> findAll() {
 
-    List<HealthPlan> healthPlansList = services.findAll();
+    List<ClinicalProcedure> list = services.findAll();
 
-    return ResponseEntity.ok().body(healthPlansList);
+    return ResponseEntity.ok().body(list);
   }
 
   @GetMapping(value = "/{id}")
-  public ResponseEntity<HealthPlan> findById(@PathVariable Long id) {
+  public ResponseEntity<ClinicalProcedure> findById(@PathVariable Long id) {
 
-    HealthPlan obj = services.findById(id);
+    ClinicalProcedure obj = services.findById(id);
 
     return ResponseEntity.ok().body(obj);
   }
 
+  // UPDATE
   @PutMapping(value = "/{id}")
-  public ResponseEntity<HealthPlan> update(@PathVariable Long id, @RequestBody HealthPlan obj) {
+  public ResponseEntity<ClinicalProcedure> update(@PathVariable Long id, @RequestBody ClinicalProcedure obj) {
 
     obj = services.update(id, obj);
 
     return ResponseEntity.ok().body(obj);
   }
 
+  // DELETE
   @DeleteMapping(value = "/{id}")
   public ResponseEntity<Void> delete(@PathVariable Long id) {
 

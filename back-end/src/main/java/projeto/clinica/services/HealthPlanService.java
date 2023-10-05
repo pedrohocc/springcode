@@ -1,4 +1,4 @@
-package projeto.clinica.service;
+package projeto.clinica.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import projeto.clinica.entity.HealthPlan;
-import projeto.clinica.repository.HealthPlanRepository;
+import projeto.clinica.entities.HealthPlan;
+import projeto.clinica.repositories.HealthPlanRepository;
 
 @Service
 public class HealthPlanService {

@@ -1,4 +1,4 @@
-package projeto.clinica.service;
+package projeto.clinica.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import projeto.clinica.entity.ClinicalProcedure;
-import projeto.clinica.repository.ClinicalProcedureRepository;
+import projeto.clinica.entities.ClinicalProcedure;
+import projeto.clinica.repositories.ClinicalProcedureRepository;
 
 @Service
 public class ClinicalProcedureService {
@@ -43,9 +43,7 @@ public class ClinicalProcedureService {
   }
 
   private void updateFields(ClinicalProcedure entity, ClinicalProcedure obj) {
-    if (obj.getName() != null && obj.getName() != "")
-      entity.setName(obj.getName());
-    if (obj.getIsActive() != entity.getIsActive())
-      entity.setIsActive(obj.getIsActive());
+    entity.setName(obj.getName());
+    entity.setIsActive(obj.getIsActive());
   }
 }

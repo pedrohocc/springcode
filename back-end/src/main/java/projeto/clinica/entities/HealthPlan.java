@@ -1,4 +1,4 @@
-package projeto.clinica.entity;
+package projeto.clinica.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,8 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "services")
-public class ClinicalProcedure {
+@Table(name = "health_plans")
+public class HealthPlan {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +20,13 @@ public class ClinicalProcedure {
   private String name;
 
   @Column(name = "is_active")
-  private Boolean isActive;
+  private boolean isActive;
 
   // Constructors
-  public ClinicalProcedure() {
+  public HealthPlan() {
   }
 
-  public ClinicalProcedure(String name, Boolean isActive) {
+  public HealthPlan(String name, boolean isActive) {
     this.name = name;
     this.isActive = isActive;
   }
@@ -44,11 +44,11 @@ public class ClinicalProcedure {
     this.name = name;
   }
 
-  public Boolean getIsActive() {
+  public boolean getIsActive() {
     return isActive;
   }
 
-  public void setIsActive(Boolean isActive) {
+  public void setIsActive(boolean isActive) {
     this.isActive = isActive;
   }
 
@@ -69,7 +69,7 @@ public class ClinicalProcedure {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    ClinicalProcedure other = (ClinicalProcedure) obj;
+    HealthPlan other = (HealthPlan) obj;
     if (id == null) {
       if (other.id != null)
         return false;
@@ -81,6 +81,6 @@ public class ClinicalProcedure {
   // ToString
   @Override
   public String toString() {
-    return "Service [id=" + id + ", name=" + name + ", isActive=" + isActive + "]";
+    return "HealthPlans [id=" + id + ", name=" + name + ", isActive=" + isActive + "]";
   }
 }
