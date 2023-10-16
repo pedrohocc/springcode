@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://static.vecteezy.com/ti/fotos-gratis/p1/2109118-abstract-desfocused-hospital-and-clinic-interior-gratis-foto.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-blend-mode: darken;
+}
+
+.item {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 15em;
+    width: 15em;
+    margin-right: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+}
+
+.item:hover {
+    background-color: rgb(255, 255, 255);
+}
