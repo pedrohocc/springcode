@@ -1,167 +1,370 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pacientes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body class="bg-secondary" onload="buscarTodosPacientes()">
-    <h1 class="text-center text-white mt-3">Fisioterapeuta</h1>
-    <div class="acoes d-flex justify-content-center align-items-center mb-3 mt-3">
-        <button
-          type="button"
-          class="btn btn-success"
-          data-bs-toggle="modal"
-          data-bs-target="#cadastro"
-        >
-          Adicionar
-        </button>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-secondary" onload="buscarTodosPacientes()">
+    <h1 class="text-center text-white mt-3">Pacientes</h1>
+    <div
+      class="acoes d-flex justify-content-center align-items-center mb-3 mt-3"
+    >
+      <button
+        type="button"
+        class="btn btn-success"
+        data-bs-toggle="modal"
+        data-bs-target="#cadastro"
+      >
+        Adicionar
+      </button>
 
-        <div
-          class="modal fade"
-          id="cadastro"
-          tabindex="-1"
-          aria-labelledby="cadastroLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="cadastroLabel">Cadastro</h1>
+      <div
+        class="modal fade"
+        id="cadastro"
+        tabindex="-1"
+        aria-labelledby="cadastroLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="cadastroLabel">Cadastro</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="">
+                <div class="mb-3">
+                  <label for="nomePaciente" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomePaciente"
+                    placeholder="Ex: Pedro"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="cpfPaciente" class="form-label">CPF</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cpfPaciente"
+                    placeholder="Ex: 123.456.789-07"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="idadePaciente" class="form-label">Idade</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="idadePaciente"
+                    placeholder="Ex: 30"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="rua" class="form-label">Rua</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="rua"
+                    placeholder="Ex: Avenida Brasil"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="numero" class="form-label">Número</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="numero"
+                    placeholder="Ex: 159"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="bairro" class="form-label">Bairro</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="bairro"
+                    placeholder="Ex: Coqueiro"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="cidade" class="form-label">Cidade</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cidade"
+                    placeholder="Ex: Belém"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="cep" class="form-label">Cep</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    placeholder="Ex: 66000-055"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="telefone" class="form-label">Telefone</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefone"
+                    placeholder="Ex: (91) 99999-9999"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="dataPagamento" class="form-label"
+                    >Data Pagamento</label
+                  >
+                  <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="dataPagamento"
+                    placeholder="Ex: 31/11/2022"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="statusPagamento" class="form-label"
+                    >Status Pagamento</label
+                  >
+                  <input
+                    type="number"
+                    max="1"
+                    min="0"
+                    class="form-control"
+                    id="statusPagamento"
+                  />
+                </div>
                 <button
                   type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form action="" method="">
-                    <div class="mb-3">
-                        <label for="nomeFisio" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nomeFisio" placeholder="Ex: Pedro" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cpfFisio" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpfFisio" placeholder="Ex: 123.456.789-07" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="coffitoFisio" class="form-label">COFFITO</label>
-                        <input type="text" class="form-control" id="coffitoFisio" placeholder="Ex: 12345" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="rua" class="form-label">Rua</label>
-                        <input type="text" class="form-control" id="rua" placeholder="Ex: 12345" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="numero" class="form-label">Número</label>
-                        <input type="number" class="form-control" id="numero" placeholder="Ex: 159" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" class="form-control" id="bairro" placeholder="Ex: Coqueiro" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cep" class="form-label">Cep</label>
-                        <input type="text" class="form-control" id="cep" placeholder="Ex: 66000-055" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cidade" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" id="cidade" placeholder="Ex: Belém" required>
-                    </div>
-                    <button type="button" onclick="criarFisio()" class="btn btn-success w-100">Cadastrar</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
+                  onclick="criarPaciente()"
+                  class="btn btn-success w-100"
                 >
-                  Fechar
+                  Cadastrar
                 </button>
-              </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
             </div>
           </div>
-        
         </div>
-        
-        <div
-          class="modal fade"
-          id="editar"
-          tabindex="-1"
-          aria-labelledby="editarLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editarLabel">Editar</h1>
+      </div>
+
+      <div
+        class="modal fade"
+        id="editar"
+        tabindex="-1"
+        aria-labelledby="editarLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editarLabel">Editar</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="">
+                <div class="mb-3">
+                  <label for="editarIdPaciente" class="form-label"
+                    >Id</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="editarIdPaciente"
+                    disabled
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarNomePaciente" class="form-label"
+                    >Nome</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editarNomePaciente"
+                    placeholder="Ex: Pedro"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarCpfPaciente" class="form-label">CPF</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editarCpfPaciente"
+                    placeholder="Ex: 123.456.789-07"
+                    disabled
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarIdadePaciente" class="form-label"
+                    >Idade</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="editarIdadePaciente"
+                    placeholder="Ex: 30"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarRua" class="form-label">Rua</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editarRua"
+                    placeholder="Ex: Avenida Brasil"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarNumero" class="form-label">Número</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editarNumero"
+                    placeholder="Ex: 159"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarBairro" class="form-label">Bairro</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editarBairro"
+                    placeholder="Ex: Coqueiro"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarCidade" class="form-label">Cidade</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editarCidade"
+                    placeholder="Ex: Belém"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarCep" class="form-label">Cep</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editarCep"
+                    placeholder="Ex: 66000-055"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarTelefone" class="form-label"
+                    >Telefone</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="editarTelefone"
+                    placeholder="Ex: (91) 99999-9999"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarDataPagamento" class="form-label"
+                    >Data Pagamento</label
+                  >
+                  <input
+                    type="datetime"
+                    class="form-control"
+                    id="editarDataPagamento"
+                    placeholder="Ex: 31/11/2022"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarStatusPagamento" class="form-label"
+                    >Status Pagamento</label
+                  >
+                  <input
+                    type="number"
+                    max="1"
+                    min="0"
+                    class="form-control"
+                    id="editarStatusPagamento"
+                    placeholder="Ex: 0"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editarAtivo" class="form-label">Ativo</label>
+                  <input
+                    type="number"
+                    max="1"
+                    min="0"
+                    class="form-control"
+                    id="editarAtivo"
+                    placeholder="Ex: 0"
+                  />
+                </div>
                 <button
                   type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form action="" method="">
-                    <div class="mb-3">
-                        <label for="informeId" class="form-label">Id</label>
-                        <input disabled type="text" class="form-control" id="informeId"  required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nomeFisioEditar" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nomeFisioEditar" placeholder="Ex: Pedro" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cpfFisioEditar" class="form-label">CPF</label>
-                        <input disabled type="text" class="form-control" id="cpfFisioEditar" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="coffitoFisioEditar" class="form-label">Coffito</label>
-                        <input disabled type="text" class="form-control" id="coffitoFisioEditar" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="ruaEditar" class="form-label">Rua</label>
-                        <input type="text" class="form-control" id="ruaEditar" placeholder="Ex: 12345" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="numeroEditar" class="form-label">Número</label>
-                        <input type="number" class="form-control" id="numeroEditar" placeholder="Ex: 159" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="bairroEditar" class="form-label">Bairro</label>
-                        <input type="text" class="form-control" id="bairroEditar" placeholder="Ex: Coqueiro" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cidadeEditar" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" id="cidadeEditar" placeholder="Ex: Belém" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cepEditar" class="form-label">Cep</label>
-                        <input type="text" class="form-control" id="cepEditar" placeholder="Ex: 66000-000" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="ativoEditar" class="form-label">Ativo</label>
-                        <input type="number" min="0" max="1" class="form-control" id="ativoEditar" placeholder="Ex: 0" required>
-                    </div>
-                    <button type="button" class="btn btn-success w-100" onclick="editarFisio()">Editar</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
+                  class="btn btn-success w-100"
+                  onclick="editarPaciente()"
                 >
-                  Fechar
+                  Editar
                 </button>
-              </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
             </div>
           </div>
         </div>
+      </div>
     </div>
     <div class="table-responsive m-auto w-50 text-center">
       <table class="table">
@@ -171,15 +374,22 @@
             <th scope="col">Nome</th>
             <th scope="col">CPF</th>
             <th scope="col">Pagamento</th>
+            <th scope="col">Ativo</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody id="corpoTabela"></tbody>
       </table>
-      <button class="btn btn-info" onclick="voltarMenuInicial()">Menu Inicial</button>
+      <button class="btn btn-info" onclick="voltarMenuInicial()">
+        Menu Inicial
+      </button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/paciente/paciente.js"></script>
-</body>
+  </body>
 </html>

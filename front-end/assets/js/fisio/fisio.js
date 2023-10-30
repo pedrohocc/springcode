@@ -1,5 +1,10 @@
 function buscarTodosFisio() {
-  fetch("http://localhost:8080/physio", { method: "GET" })
+  fetch("http://localhost:8080/physio", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
     .then((res) => {
       let json = res.json();
       return json;
@@ -14,7 +19,9 @@ function buscarTodosFisio() {
           coffito: fisio.coffito,
           ativo: fisio.isActive,
         };
-        listaFisio.push(novoFisio);
+        if (fisio.isActive == 1) {
+          listaFisio.push(novoFisio);
+        }
       }
 
       adicionarItensTabela(listaFisio);
@@ -66,8 +73,8 @@ function criarFisio() {
     districtAddress: bairroInput,
     cityAddress: cidadeInput,
     zipCode: cepInput,
-    isActive: 1
-  }
+    isActive: 1,
+  };
 
   fetch(`http://localhost:8080/physio`, {
     method: "POST",
@@ -81,8 +88,26 @@ function criarFisio() {
   });
 }
 
-function deletarFisio(id) {
-  fetch(`http://localhost:8080/physio/${id}`, { method: "DELETE" }).then(() => {
+async function deletarFisio(id) {
+  const fisio = await buscarFisioId(id);
+  fetch(`http://localhost:8080/physio/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: fisio.id,
+      name: fisio.nome,
+      cpf: fisio.cpf,
+      coffito: fisio.coffito,
+      streetAddress: fisio.rua,
+      numberAddress: fisio.numero,
+      districtAddress: fisio.bairro,
+      cityAddress: fisio.cidade,
+      zipCode: fisio.cep,
+      isActive: Boolean(0),
+    }),
+  }).then(() => {
     alert("Item Excluido");
     location.reload();
   });
